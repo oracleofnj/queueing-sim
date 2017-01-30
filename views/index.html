@@ -1,0 +1,114 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!-- You might want to try something fancier: -->
+<!-- html/nunjucks docs: http://mozilla.github.io/nunjucks/ -->
+<!-- jade: http://jade-lang.com/ -->
+<!-- haml: http://haml.info/tutorial.html -->
+<!-- hbs(handlebars): http://handlebarsjs.com/expressions.html -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stat 5224</title>
+    <meta name="description" content="A cool thing made with Gomix">
+    <link id="favicon" rel="icon" href="https://gomix.com/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <h3 class="col-sm-12">Parameters</h3>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <form id="simulationParams" class="form-horizontal">
+            <div class="form-group">
+              <label for="numDocs" class="col-sm-4 control-label">Number of Doctors</label>
+              <div class="col-sm-5">
+                <input type="number" class="form-control" id="numDocs" value="3">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="poisTime" class="col-sm-4 control-label">Mean Time Between Arrivals</label>
+              <div class="col-sm-5">
+                <div class="input-group">
+                  <input type="number" class="form-control" id="poisTime" value="10">
+                  <span class="input-group-addon">minutes</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="minDocTime" class="col-sm-4 control-label">Min Visit Time</label>
+              <div class="col-sm-5">
+                <div class="input-group">
+                  <input type="number" class="form-control" id="minDocTime" value="5">
+                  <span class="input-group-addon">minutes</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="maxDocTime" class="col-sm-4 control-label">Max Visit Time</label>
+              <div class="col-sm-5">
+                <div class="input-group">
+                  <input type="number" class="form-control" id="maxDocTime" value="25">
+                  <span class="input-group-addon">minutes</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="numSims" class="col-sm-4 control-label">Number of Simulations</label>
+              <div class="col-sm-5">
+                <input type="number" class="form-control" id="numSims" value="2000">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <h3 class="col-sm-12">Results</h3>
+      </div>
+      <div id="simResults">
+        <div id="simPercentiles">
+          <h5 class="row">
+            <div class="col-sm-4">Quantity</div>
+            <div class="col-sm-2">25th Percentile</div>
+            <div class="col-sm-2">50th Percentile</div>
+            <div class="col-sm-2">75th Percentile</div>
+          </h5>        
+        </div>
+        <div id="simFrequencies">
+          <h5 class="row">
+            <div class="col-sm-4">Event Description</div>
+            <div class="col-sm-2">Event Count</div>
+            <div class="col-sm-2">Event Frequency</div>
+          </h5>
+        </div>
+      </div>
+      <div>
+        <h3 class="row">
+          <div class="col-md-12" id="graphTitle">Frequency Histogram</div>
+        </h3>
+        <svg id="resultGraph" width="960" height="500"></svg>
+      </div>
+    </div>
+    <!-- Your web-app is https, so your scripts need to be too -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>    
+    <script src="js/datastructures.js"></script>
+    <script src="js/mathfuncs.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="/client.js"></script>
+
+  </body>
+</html>
